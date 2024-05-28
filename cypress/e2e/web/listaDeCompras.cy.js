@@ -3,7 +3,9 @@
 describe('Funcionalidade: Lista de compras', () => {
 
     beforeEach(() => {
-        cy.login('teste@capgemini.com','1234@')
+        cy.fixture('login').then((dadosLogin) =>{
+            cy.login(dadosLogin.email, dadosLogin.senha)
+        })
     });
 
     it('Validar entrada na lista de compras', () => {

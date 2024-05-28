@@ -1,18 +1,15 @@
 /// <reference types="cypress" />
 
-
 describe('Funcionalidade: Login', () => {
 
     beforeEach(() => {
         //Fazer interação antes de cada cenário
         cy.visit('https://front.serverest.dev/login')
-
     });
 
     afterEach(() => {
         // Fazer interação após cada cenário
         cy.screenshot()
-
     });
 
     it('Fazer login com sucesso', () => {
@@ -20,15 +17,13 @@ describe('Funcionalidade: Login', () => {
         cy.get('[data-testid="senha"]').clear().type('1234@')
         cy.get('[data-testid="entrar"]').click()
         cy.get('h1').should('contain', 'Serverest Store')
-        
     });
-    
+
     it('Validar mensagem de usuário invalido', () => {
         cy.get('[data-testid="email"]').clear().type('test@capgemini.com')
         cy.get('[data-testid="senha"]').clear().type('1234@')
         cy.get('[data-testid="entrar"]').click()
         cy.get('.alert').should('contain', 'Email e/ou senha inválidos')
-        
     });
 
     it('Validar mensagem de senha invalida', () => {
@@ -36,7 +31,6 @@ describe('Funcionalidade: Login', () => {
         cy.get('[data-testid="senha"]').clear().type('1234 ')
         cy.get('[data-testid="entrar"]').click()
         cy.get('.alert').should('contain', 'Email e/ou senha inválidos')
-        
     });
 
     it('Validar mensagem de senha em branco', () => {
@@ -44,7 +38,15 @@ describe('Funcionalidade: Login', () => {
         cy.get('[data-testid="senha"]').clear().type('1234 ')
         cy.get('[data-testid="entrar"]').click()
         cy.get('.alert').should('contain', 'Email e/ou senha inválidos')
-        
     });
+
+    it.only('Deve fazer login com sucesso usando fixture', () => {
+        cy.fixture('login').then((dadosLogin) =>{
+            cy.login(dadosLogin.email, dadosLogin.senha)
+        })
+        cy.get('h1').should('contain', 'Serverest Store')
+    });
+
 });
+
 

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --browser chrome",
+    "report": "npx cypress run --record --key ce873704-8a24-40cc-8ade-68026abb24ae",
+    "allure:report": "npx allure serve allure-results"
   },
   "keywords": [],
   "author": "",

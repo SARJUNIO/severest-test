@@ -1,0 +1,23 @@
+[
+
+    {
+        "nome" : "Teste",
+        "email" : "teste1@capgemini.com",
+        "senha" : "1234"
+    },
+    {
+        "nome" : "Sarkis junior",
+        "email" : "teste@capgemini.com",
+        "senha" : "teste@123"
+    },
+    {
+        "nome" : "Sarkis Kire",
+        "email" : "kire@capgemini.com",
+        "senha" : "teste@123"
+    },
+    {
+        "nome" : "Junior Sarkis",
+        "email" : "junior@capgemini.com",
+        "senha" : "teste@123"
+    }
+]
